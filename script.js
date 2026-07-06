@@ -16,7 +16,7 @@ if (!isLoggedIn) {
 
 function loadPrompts() {
 
-    fetch("http://localhost:5000/prompts")
+    fetch("https://ai-prompt-manager-9n6g.onrender.com/prompts")
         .then(function (response) {
             return response.json();
         })
@@ -148,7 +148,7 @@ addBtn.addEventListener("click", function () {
         type: type
     };
 
-    fetch("http://localhost:5000/prompts", {
+    fetch("https://ai-prompt-manager-9n6g.onrender.com/prompts", {
 
         method: "POST",
 
@@ -175,7 +175,7 @@ addBtn.addEventListener("click", function () {
 
 function deletePrompt(id) {
 
-    fetch(`http://localhost:5000/prompts/${id}`, {
+    fetch(`https://ai-prompt-manager-9n6g.onrender.com/prompts/${id}`, {
 
         method: "DELETE",
         headers: {
@@ -221,7 +221,7 @@ function editPrompt(id) {
         type: newType
     };
 
-    fetch(`http://localhost:5000/prompts/${id}`, {
+    fetch(`https://ai-prompt-manager-9n6g.onrender.com/prompts/${id}`, {
 
         method: "PUT",
 
