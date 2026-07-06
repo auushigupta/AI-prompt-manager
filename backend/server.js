@@ -4,13 +4,17 @@ const db = require("./database");
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "isLoggedIn"]
+}));
 app.use(express.json());
 // ================= AUTH MIDDLEWARE =================
 
 function checkLogin(req, res, next) {
 
-    const isLoggedIn = req.headers["isloggedin"];
+    const isLoggedIn = req.headers["isLoggedIn"];
 
     if (isLoggedIn === "true") {
         next();
