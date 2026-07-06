@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Prompt Manager</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+<nav class="navbar">
+
+    <div class="logo">
+    <span class="logo-icon">🤖</span>
+    <div>
+        <h2>Prompt Manager</h2>
+        <small>AI Prompt Organizer</small>
+    </div>
+</div>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+
+</nav>
+<section class="hero">
+
+    <div class="hero-left">
+
+        <span class="badge">✨ Welcome to</span>
+
+        <h1>AI Prompt <span>Manager</span></h1>
+
+        <p>
+            Organize, Search and Manage your AI prompts in one place.
+        </p>
+
+        <div class="hero-features">
+
+            <div class="feature-card">
+                <div class="icon">📁</div>
+                <h3>Organize</h3>
+                <p>Keep prompts organized</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon">🔍</div>
+                <h3>Search</h3>
+                <p>Find prompts quickly</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon">🛠️</div>
+                <h3>Manage</h3>
+                <p>Edit and reuse easily</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="hero-right">
+
+        <img src="robot.png" alt="Robot">
+
+    </div>
+
+</section>
+<div class="container">
+
+<div class="top-bar">
+
+<h1>Explore AI Prompts</h1>
+
+<div id="authButtons">
+
+<button id="loginPageBtn" onclick="window.location.href='login.html'">
+Login
+</button>
+
+<button id="logoutBtn" style="display:none;">
+Logout
+</button>
+
+</div>
+
+</div>
+
+<!-- Search -->
+
+<div class="search-area">
+
+<input
+type="text"
+id="search"
+placeholder="Search prompts..."
+>
+
+<select id="category">
+
+<option value="all">All</option>
+<option value="writing">Writing</option>
+<option value="coding">Coding</option>
+<option value="career">Career</option>
+
+</select>
+
+<select id="typeFilter">
+
+<option value="all">All Types</option>
+<option value="template">Template</option>
+<option value="system prompt">System Prompt</option>
+<option value="one-shot">One-shot</option>
+
+</select>
+</div>
+
+<!-- Add -->
+
+<div class="add-area">
+
+<input
+type="text"
+id="title"
+placeholder="Prompt title"
+>
+
+<textarea
+id="text"
+placeholder="Write prompt"
+></textarea>
+
+<select id="newCategory">
+
+<option value="writing">Writing</option>
+<option value="coding">Coding</option>
+<option value="career">Career</option>
+
+</select>
+
+<select id="newType">
+
+<option value="template">Template</option>
+<option value="system prompt">System Prompt</option>
+<option value="one-shot">One-shot</option>
+
+</select>
+
+<button id="addBtn">
+Add Prompt
+</button>
+
+</div>
+
+<div id="prompt-container">
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

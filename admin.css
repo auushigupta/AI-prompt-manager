@@ -1,0 +1,41 @@
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial, sans-serif;
+    background:#f4f4f4;
+}
+
+.admin{
+    width:400px;
+    margin:80px auto;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.2);
+    text-align:center;
+}
+
+.admin h1{
+    margin-bottom:10px;
+}
+
+.admin h3{
+    margin-bottom:30px;
+    color:#555;
+}
+
+.admin button{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:none;
+    border-radius:5px;
+    font-size:16px;
+    cursor:pointer;
+    background:#007bff;
+    color:white;
+}
+
+.admin button:hover{
+    background:#0056b3;
+}

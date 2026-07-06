@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Prompt Manager</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Poppins) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #020617;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Navbar Styling */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background-color: #030712;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .logo span { color: #3b82f6; }
+        .logo i { color: #3b82f6; font-size: 1.5rem; }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover, nav a.active-link {
+            color: #ffffff;
+        }
+
+        .active-link {
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 4px;
+        }
+
+        /* Hero Banner Section */
+        .hero-banner {
+            background: radial-gradient(circle at center, #0f172a 0%, #020617 100%);
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            border-bottom: 1px solid #0f172a;
+        }
+
+        .hero-banner h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .hero-banner h1 span { color: #3b82f6; }
+
+        .divider-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            max-width: 300px;
+            margin: 0 auto 20px auto;
+        }
+
+        .line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #2563eb, transparent);
+            flex-grow: 1;
+        }
+
+        .divider-container i {
+            color: #3b82f6;
+            background: #1e293b;
+            padding: 6px;
+            border-radius: 50%;
+            font-size: 0.8rem;
+        }
+
+        .hero-banner p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        /* Main Container */
+        .main-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        /* About Developer Card */
+        .dev-card {
+            background-color: #0b1329;
+            border: 1px solid #1e293b;
+            border-radius: 12px;
+            padding: 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .dev-info { flex: 1; }
+        .dev-info h2 { font-size: 1.6rem; margin-bottom: 10px; font-weight: 600; }
+        .dev-info .underline { width: 50px; height: 3px; background-color: #3b82f6; margin-bottom: 20px; }
+        .dev-info .bio { color: #cbd5e1; font-size: 1rem; margin-bottom: 30px; line-height: 1.6; }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .meta-item { display: flex; align-items: center; gap: 15px; }
+        
+        .meta-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+        .bg-edu { background-color: rgba(37, 99, 235, 0.2); color: #3b82f6; }
+        .bg-loc { background-color: rgba(139, 92, 246, 0.2); color: #8b5cf6; }
+        .bg-motto { background-color: rgba(245, 158, 11, 0.2); color: #f59e0b; }
+
+        .meta-text p { font-size: 0.95rem; font-weight: 600; margin-bottom: 2px; }
+        .text-edu { color: #3b82f6; }
+        .text-loc { color: #8b5cf6; }
+        .text-motto { color: #f59e0b; }
+        .meta-text span { color: #94a3b8; font-size: 0.88rem; }
+
+        .dev-image {
+            flex: 0 0 350px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .stat-card {
+            background-color: #0b1329;
+            border: 1px solid #1e293b;
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .stat-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.3rem;
+            color: white;
+        }
+        .st-blue { background: radial-gradient(#2563eb, #1d4ed8); }
+        .st-green { background: radial-gradient(#10b981, #047857); }
+        .st-purple { background: radial-gradient(#8b5cf6, #6d28d9); }
+        .st-orange { background: radial-gradient(#f59e0b, #b45309); }
+
+        .stat-text h3 { font-size: 1.4rem; font-weight: 700; color: #ffffff; }
+        .stat-text .st-lbl-green { color: #10b981; font-size: 0.85rem; }
+        .stat-text p { color: #94a3b8; font-size: 0.85rem; margin-top: 2px; }
+
+        /* Mission & Info Section */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .info-card {
+            background-color: #0b1329;
+            border: 1px solid #1e293b;
+            border-radius: 12px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .info-header i { font-size: 1.5rem; color: #3b82f6; }
+        .info-header h3 { font-size: 1.25rem; font-weight: 600; }
+        .info-card p { color: #cbd5e1; font-size: 0.92rem; line-height: 1.6; position: relative; z-index: 2; }
+
+        /* Watermark Background Icons */
+        .watermark-icon {
+            position: absolute;
+            bottom: -15px;
+            right: -10px;
+            font-size: 6rem;
+            color: rgba(30, 41, 59, 0.3);
+            pointer-events: none;
+        }
+
+        /* Tech Stack Section */
+        .tech-section {
+            background-color: #0b1329;
+            border: 1px solid #1e293b;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .tech-title-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .tech-title-container h3 { font-size: 1.3rem; font-weight: 600; }
+        .tech-title-container i { color: #3b82f6; font-size: 0.9rem; }
+
+        .tech-grid {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            min-width: 80px;
+        }
+
+        .tech-item i { font-size: 2.5rem; width: 40px; height: 40px; }
+        .t-html { color: #e34f26; }
+        .t-css { color: #1572b6; }
+        .t-js { color: #f7df1e; }
+        .t-node { color: #339933; }
+        .tech-item span { color: #94a3b8; font-size: 0.85rem; font-weight: 500; }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .dev-card { flex-direction: column; text-align: center; padding: 25px; }
+            .dev-info .underline { margin: 0 auto 20px auto; }
+            .meta-grid { grid-template-columns: 1fr; justify-items: center; }
+            .meta-item { flex-direction: column; text-align: center; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .info-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 600px) {
+            header, .footer-top { flex-direction: column; text-align: center; gap: 15px; }
+            nav { flex-direction: column; gap: 10px; }
+            nav a { margin-left: 0; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .hero-banner h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navbar -->
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-robot"></i> Prompt <span>Manager</span>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active-link">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- Hero Banner Section -->
+    <section class="hero-banner">
+        <h1>About <span>Us</span></h1>
+        <div class="divider-container">
+            <div class="line"></div>
+            <i class="fa-solid fa-users"></i>
+            <div class="line"></div>
+        </div>
+        <p>Learn more about the developer and the vision behind Prompt Manager.</p>
+    </section>
+
+    <!-- Main Content Grid -->
+    <main class="main-container">
+
+        <!-- About Developer Card -->
+        <section class="dev-card">
+            <div class="dev-info">
+                <h2>About the Developer</h2>
+                <div class="underline"></div>
+                <p class="bio">I'm Ayushi Gupta, a B.Tech CSE undergrad who loves turning ideas into real-world solutions.</p>
+                
+                <div class="meta-grid">
+                    <div class="meta-item">
+                        <div class="meta-icon bg-edu"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div class="meta-text">
+                            <p class="text-edu">Education</p>
+                            <span>B.Tech Computer Science Engineering (CSE)</span>
+                        </div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-icon bg-loc"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="meta-text">
+                            <p class="text-loc">Location</p>
+                            <span>Lucknow, Uttar Pradesh, India</span>
+                        </div>
+                    </div>
+                    <div class="meta-item" style="grid-column: span 1;">
+                        <div class="meta-icon bg-motto"><i class="fa-solid fa-star"></i></div>
+                        <div class="meta-text">
+                            <p class="text-motto">Motto</p>
+                            <span>Organize. Save. Use. Repeat.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dev-image">
+                <!-- Pure CSS Laptop Graphic without external image dependencies -->
+                <div style="position: relative; width: 100%; max-width: 320px; height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center; margin: 0 auto;">
+                    <!-- Laptop Screen -->
+                    <div style="width: 260px; height: 160px; background: #0f172a; border: 8px solid #334155; border-radius: 8px 8px 0 0; position: relative; box-shadow: 0 0 25px rgba(59, 130, 246, 0.3); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 8px;">
+                        <i class="fa-solid fa-code" style="color: #3b82f6; font-size: 2.5rem;"></i>
+                        <div style="font-size: 0.75rem; color: #64748b; font-family: monospace;">&lt;Ayushi Gupta /&gt;</div>
+                    </div>
+                    <!-- Laptop Base -->
+                    <div style="width: 300px; height: 12px; background: #1e293b; border-radius: 0 0 8px 8px; border-bottom: 4px solid #0f172a; position: relative; z-index: 2;"></div>
+                    <!-- Laptop Base Notch -->
+                    <div style="width: 60px; height: 4px; background: #334155; border-radius: 0 0 4px 4px; position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 3;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Grid Counter -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-circle st-blue"><i class="fa-solid fa-rocket"></i></div>
+                <div class="stat-text">
+                    <h3>1</h3>
+                    <p>Project</p>
+                    <p style="color:#64748b; font-size:0.75rem;">Prompt Manager</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-circle st-green"><i class="fa-solid fa-code"></i></div>
+                <div class="stat-text">
+                    <h3>100+</h3>
+                    <span class="st-lbl-green">Lines of Code</span>
+                    <p>Built with ❤️</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-circle st-purple"><i class="fa-solid fa-bullseye"></i></div>
+                <div class="stat-text">
+                    <h3>1</h3>
+                    <p>Goal</p>
+                    <p style="color:#64748b; font-size:0.75rem;">Making productivity easy</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-circle st-orange"><i class="fa-solid fa-trophy"></i></div>
+                <div class="stat-text">
+                    <h3>100%</h3>
+                    <p style="color:#ffa116;">Dedication</p>
+                    <p style="color:#64748b; font-size:0.75rem;">To learning & building</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission & Info Blocks -->
+        <section class="info-grid">
+            <div class="info-card">
+                <div class="info-header">
+                    <i class="fa-solid fa-bullseye"></i>
+                    <h3>Our Mission</h3>
+                </div>
+                <p>Our mission is to help users save, organize, and access their AI prompts efficiently. Prompt Manager is built to boost productivity and save valuable time for developers, students, and professionals.</p>
+                <i class="fa-solid fa-rocket watermark-icon"></i>
+            </div>
+            <div class="info-card">
+                <div class="info-header">
+                    <i class="fa-solid fa-robot"></i>
+                    <h3>What is Prompt Manager?</h3>
+                </div>
+                <p>Prompt Manager is a web application that allows users to create, save, organize, and copy prompts easily. It is simple, fast, and built with a clean UI for a smooth experience.</p>
+                <i class="fa-regular fa-comment-dots watermark-icon"></i>
+            </div>
+        </section>
+
+        <!-- Tech Stack Section -->
+        <section class="tech-section">
+            <div class="tech-title-container">
+                <div class="line" style="max-width: 40px;"></div>
+                <i class="fa-solid fa-code"></i>
+                <h3>Tech Stack</h3>
+                <i class="fa-solid fa-code"></i>
+                <div class="line" style="max-width: 40px;"></div>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-item"><i class="fa-brands fa-html5 t-html"></i><span>HTML5</span></div>
+                <div class="tech-item"><i class="fa-brands fa-css3-alt t-css"></i><span>CSS3</span></div>
+                <div class="tech-item"><i class="fa-brands fa-js t-js"></i><span>JavaScript</span></div>
+                <div class="tech-item"><i class="fa-brands fa-node-js t-node"></i><span>Node.js</span></div>
+                <div class="tech-item"><span style="font-size: 1.8rem; font-weight: 700; color: #cbd5e1; line-height: 2.5rem; display: block; height: 40px;">ex</span><span>Express.js</span></div>
+                <div class="tech-item"><i class="fa-solid fa-leaf" style="color: #47a248;"></i><span>MongoDB</span></div>
+                <div class="tech-item"><i class="fa-solid fa-flag" style="color: #3b82f6;"></i><span>Font Awesome</span></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer style="background-color: #030712; border-top: 1px solid #1e293b; padding: 30px 8%; display: flex; flex-direction: column; align-items: center; gap: 15px;">
+        <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;">
+            <div>
+                <div class="logo">
+                    <i class="fa-solid fa-robot"></i> Prompt <span>Manager</span>
+                </div>
+                <p style="color: #64748b; font-size: 0.85rem; margin-top: 4px;">Organize. Save. Use. Repeat.</p>
+            </div>
+            <div style="color: #64748b; font-size: 0.9rem;">
+                &copy; 2025 Prompt Manager. All rights reserved.
+            </div>
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/ayushi-gupta-012a52391/" class="social-circle f-linkedin" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://github.com/auushigupta" class="social-circle f-github" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.geeksforgeeks.org/user/auushigupta/" class="social-circle f-gfg" target="_blank"><i class="fa-solid fa-code"></i></a>
+                <a href="https://leetcode.com/u/auushigupta/" class="social-circle f-leetcode" target="_blank"><i class="fa-solid fa-terminal"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
