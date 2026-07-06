@@ -3,7 +3,7 @@ document.querySelector("#loginBtn").addEventListener("click", function () {
     let email = document.querySelector("#email").value;
     let password = document.querySelector("#password").value;
 
-    fetch("http://localhost:5000/login", {
+    fetch("https://ai-prompt-manager-9n6g.onrender.com/login", {
 
         method: "POST",
 
