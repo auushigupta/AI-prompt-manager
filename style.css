@@ -559,3 +559,64 @@ body{
     text-shadow:0 0 18px rgba(90,140,255,.25);
 
 }
+/* ==========================================
+   YAHAN SE MOBILE DESIGN (RESPONSIVE) SHURU
+   ========================================== */
+@media (max-width: 768px) {
+
+  /* ---- STEP 3: Navbar & Robot Image ---- */
+  header, .navbar, .nav-container { 
+    display: flex !important;
+    flex-direction: column !important; 
+    align-items: center !important;
+    text-align: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+
+  header img, .navbar img { 
+    max-width: 120px !important;
+    height: auto !important;
+    margin-top: 10px !important;
+  }
+
+
+  /* ---- STEP 4: Search & Dropdowns ---- */
+  .filters-container, .search-section, .filter-section { 
+    display: flex !important;
+    flex-direction: column !important; 
+    width: 90% !important;
+    margin: 15px auto !important;
+    gap: 12px !important;
+  }
+
+  .filters-container input, 
+  .filters-container select, 
+  .filters-container button,
+  #searchPrompts, .btn {
+    width: 100% !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+  }
+
+
+  /* ---- STEP 5: Prompt Cards ---- */
+  .cards-container, .prompts-grid, .main-content { 
+    display: flex !important;
+    flex-direction: column !important; 
+    align-items: center !important;
+    width: 100% !important;
+    padding: 10px !important;
+    gap: 20px !important;
+  }
+
+  .card, .prompt-card { 
+    width: 90% !important; 
+    max-width: 360px !important; 
+    margin: 0 auto !important;
+  }
+
+}
+/* ==========================================
+   MOBILE DESIGN YAHAN KHATAM
+   ========================================== */
